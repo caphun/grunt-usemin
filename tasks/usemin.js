@@ -92,6 +92,9 @@ module.exports = function (grunt) {
       // raw buffer read
       content = content.toString();
 
+      // greedy and crude pre-processing of all variables
+      content = grunt.template.process(content);
+
       // Our revved version locator
       var revvedfinder = new RevvedFinder(function (p) { return grunt.file.expand({filter: 'isFile'},p);}, options.dirs);
 
